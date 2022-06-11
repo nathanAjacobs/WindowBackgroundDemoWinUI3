@@ -1,0 +1,39 @@
+﻿<local:BetterWindow
+    x:Class="WindowBackgroundDemoWinUI3.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowBackgroundDemoWinUI3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    MinHeight="700"
+    MinWidth="600">
+
+    <Grid Background="{x:Bind PageBackgroundBrush, Mode=OneWay}">
+        <Grid RowSpacing="20"
+              CornerRadius="8"
+              Width="400"
+              Height="600"
+              Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition>Auto</RowDefinition>
+                <RowDefinition>Auto</RowDefinition>
+            </Grid.RowDefinitions>
+            <muxc:CheckBox Margin="0,20,0,0"
+                           Grid.Row="0"
+                           Content="Use Custom Background Color"
+                           HorizontalAlignment="Center"
+                           Checked="ColorCheckBoxChecked"
+                           Unchecked="ColorCheckBoxUnchecked"/>
+            <muxc:ColorPicker Grid.Row="1"
+                              HorizontalAlignment="Center"
+                              IsAlphaEnabled="False"
+                              IsColorPreviewVisible="True"
+                              IsColorSliderVisible="True"
+                              IsHexInputVisible="True"
+                              Name="ColorPicker"
+                              ColorChanged="OnColorChanged"/>
+        </Grid>
+    </Grid>
+</local:BetterWindow>
